@@ -1,0 +1,54 @@
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();    
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+
+function vowelsAndConsonants(s) {
+    
+    let vowels="";
+    let consonants="";
+  
+    for(let i=0; i< s.length; i++){
+        if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] =='o' || s[i] == 'u'){
+            vowels += s.charAt(i);
+            }
+           else{
+               consonants += s.charAt(i);
+           }
+    }
+         for(let j=0; j < vowels.length ; j++){
+             console.log(vowels[j]);
+         }
+     
+    for(let z=0; z < consonants.length; z++){  
+        console.log(consonants[z]);
+    }
+}
+
+
+
+function main() {
+    const s = readLine();
+    
+    vowelsAndConsonants(s);
+}
